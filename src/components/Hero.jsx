@@ -28,7 +28,7 @@ const Hero = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingTop: '100px',
+      paddingTop: '80px',
       position: 'relative',
       overflow: 'hidden'
     }}>
@@ -44,77 +44,12 @@ const Hero = () => {
         zIndex: 0
       }}></div>
 
-      <div className="container" style={{
-        display: 'grid',
-        gridTemplateColumns: '1.1fr 0.9fr',
-        alignItems: 'center',
-        gap: '4rem',
-        zIndex: 1
-      }}>
+      <div className="container hero-container">
         
-        <div className="hero-content">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            style={{ marginBottom: '2rem' }}
-          >
-            <div className="mono" style={{ color: 'var(--accent-cyan)', display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem', fontSize: '0.75rem' }}>
-              <Terminal size={14} />
-              <span>STUDENT_ID // NETWORK_SECURITY_STUDENT</span>
-            </div>
-            
-            <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', marginBottom: '2rem', color: 'var(--text-primary)', letterSpacing: '2px' }}>
-              <span style={{ color: 'var(--text-dim)' }}>I'M </span> 
-              <span className="glow-text-cyan">
-                <Typewriter text={name} delay={120} />
-              </span>
-              <motion.span 
-                animate={{ opacity: [1, 0] }}
-                transition={{ repeat: Infinity, duration: 0.8 }}
-                style={{ marginLeft: '4px', borderLeft: '4px solid var(--accent-cyan)' }}
-              ></motion.span>
-            </h1>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2, duration: 1 }}
-              style={{ 
-                fontSize: 'clamp(1rem, 2vw, 1.25rem)', 
-                color: 'var(--text-secondary)', 
-                maxWidth: '550px',
-                lineHeight: 1.7,
-                fontFamily: 'var(--font-body)',
-                fontWeight: 400
-              }}
-            >
-              I am a <span style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>Networking and Cybersecurity student</span> building resilient infrastructure and defending digital frontiers through technical excellence.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.5, duration: 0.8 }}
-            style={{ display: 'flex', gap: '2rem', marginTop: '3rem' }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-               <Network size={22} color="var(--accent-emerald)" />
-               <span className="mono" style={{ fontWeight: 700, fontSize: '0.8rem', color: 'var(--text-primary)' }}>NETWORKING</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-               <Shield size={22} color="var(--accent-purple)" />
-               <span className="mono" style={{ fontWeight: 700, fontSize: '0.8rem', color: 'var(--text-primary)' }}>CYBER_DEFENSE</span>
-            </div>
-          </motion.div>
-        </div>
-
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          style={{ display: 'flex', justifyContent: 'center' }}
           className="hero-image-wrapper"
         >
           <div className="hero-image-container">
@@ -126,9 +61,75 @@ const Hero = () => {
           </div>
         </motion.div>
 
+        <div className="hero-content">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{ marginBottom: '2rem' }}
+          >
+            <div className="mono hero-label">
+              <Terminal size={14} />
+              <span>STUDENT_ID // NETWORK_SECURITY_STUDENT</span>
+            </div>
+            
+            <h1 className="hero-title">
+              <span style={{ color: 'var(--text-dim)' }}>I'M </span> 
+              <span className="glow-text-cyan">
+                <Typewriter text={name} delay={120} />
+              </span>
+              <motion.span 
+                animate={{ opacity: [1, 0] }}
+                transition={{ repeat: Infinity, duration: 0.8 }}
+                className="cursor"
+              ></motion.span>
+            </h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2, duration: 1 }}
+              className="hero-description"
+            >
+              I am a <span style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>Networking and Cybersecurity student</span> building resilient infrastructure and defending digital frontiers through technical excellence.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.5, duration: 0.8 }}
+            className="hero-badges"
+          >
+            <div className="badge">
+               <Network size={22} color="var(--accent-emerald)" />
+               <span className="mono">NETWORKING</span>
+            </div>
+            <div className="badge">
+               <Shield size={22} color="var(--accent-purple)" />
+               <span className="mono">CYBER_DEFENSE</span>
+            </div>
+          </motion.div>
+        </div>
+
       </div>
 
       <style>{`
+        .hero-container {
+          display: grid;
+          grid-template-columns: 0.9fr 1.1fr;
+          align-items: center;
+          gap: 4rem;
+          zIndex: 1;
+          width: 100%;
+        }
+
+        .hero-image-wrapper {
+          display: flex;
+          justify-content: flex-start;
+          order: 2;
+        }
+
         .hero-image-container {
           width: 420px;
           height: 420px;
@@ -146,26 +147,87 @@ const Hero = () => {
           display: block;
         }
 
+        .hero-title {
+          font-size: clamp(2.5rem, 6vw, 4.5rem);
+          margin-bottom: 2rem;
+          color: var(--text-primary);
+          letter-spacing: 2px;
+        }
+
+        .hero-label {
+          color: var(--accent-cyan);
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          margin-bottom: 1.5rem;
+          font-size: 0.75rem;
+        }
+
+        .hero-description {
+          font-size: clamp(1rem, 2vw, 1.25rem);
+          color: var(--text-secondary);
+          max-width: 550px;
+          line-height: 1.7;
+          font-family: var(--font-body);
+        }
+
+        .hero-badges {
+          display: flex;
+          gap: 2rem;
+          margin-top: 3rem;
+        }
+
+        .badge {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        .badge span {
+          font-weight: 700;
+          font-size: 0.8rem;
+          color: var(--text-primary);
+        }
+
+        .cursor {
+          margin-left: 4px;
+          border-left: 4px solid var(--accent-cyan);
+        }
+
         @media (max-width: 992px) {
-          .hero .container { 
+          .hero-container { 
             grid-template-columns: 1fr; 
             text-align: center; 
-            justify-items: center; 
-            gap: 2rem;
+            gap: 3rem;
           }
+          
           .hero-content { 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
+            order: 2;
           }
+
           .hero-image-wrapper { 
-            order: -1; 
+            justify-content: center;
+            order: 1;
+            margin-bottom: 1rem;
           }
+
           .hero-image-container { 
             width: 220px; 
             height: 220px; 
             border-radius: 50%;
-            margin-bottom: 1rem;
+          }
+
+          .hero-description {
+             max-width: 100%;
+          }
+
+          .hero-badges {
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
           }
         }
 
@@ -173,6 +235,14 @@ const Hero = () => {
           .hero-image-container { 
             width: 180px; 
             height: 180px; 
+          }
+          .hero-title {
+            font-size: 2.2rem;
+          }
+          .hero-label {
+            font-size: 0.65rem;
+            flex-direction: column;
+            gap: 0.4rem;
           }
         }
       `}</style>
