@@ -119,7 +119,7 @@ const Hero = () => {
         >
           <div className="hero-image-container">
             <img 
-              src="/profile.jpg" 
+              src="profile.jpg" 
               alt="Jermaine Rateng'" 
               className="hero-profile-img"
             />
