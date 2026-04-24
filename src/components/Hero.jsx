@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Shield, Network } from 'lucide-react';
+import { Shield, Network } from 'lucide-react';
 
 const Typewriter = ({ text, delay = 100 }) => {
   const [currentText, setCurrentText] = useState('');
@@ -106,18 +106,6 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="mono" style={{ 
-              color: 'var(--accent-cyan)', 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: '0.75rem', 
-              marginBottom: '1.5rem', 
-              fontSize: isMobile ? '0.65rem' : '0.75rem' 
-            }}>
-              <Terminal size={14} />
-              <span>STUDENT_ID // NETWORK_SECURITY_STUDENT</span>
-            </div>
-            
             <h1 style={{ 
               fontSize: isMobile ? 'clamp(1.8rem, 8vw, 2.5rem)' : 'clamp(2.5rem, 6vw, 4.5rem)', 
               marginBottom: '1.5rem', 
@@ -148,7 +136,7 @@ const Hero = () => {
                 fontFamily: 'var(--font-body)'
               }}
             >
-              I am a <span style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>Networking and Cybersecurity student</span> building resilient infrastructure and defending digital frontiers through technical excellence.
+              <span style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>A Networking and Cybersecurity student</span> building resilient infrastructure and defending digital frontiers through technical excellence.
             </motion.p>
           </motion.div>
 
