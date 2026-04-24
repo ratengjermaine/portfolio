@@ -21,18 +21,26 @@ const Typewriter = ({ text, delay = 100 }) => {
 
 const Hero = () => {
   const name = "Jermaine Rateng'";
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 992);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   return (
-    <section id="home" className="hero" style={{
+    <section id="home" style={{
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingTop: '80px',
+      padding: isMobile ? '100px 20px 40px' : '100px 0',
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      background: 'var(--bg-primary)'
     }}>
-      {/* Subtle background glow */}
+      {/* Background Glow */}
       <div style={{
         position: 'absolute',
         top: '10%',
@@ -44,36 +52,79 @@ const Hero = () => {
         zIndex: 0
       }}></div>
 
-      <div className="container hero-container">
+      <div style={{
+        display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: isMobile ? '2rem' : '4rem',
+        width: '100%',
+        maxWidth: '1200px',
+        margin: '0 auto',
+        zIndex: 1,
+        textAlign: isMobile ? 'center' : 'left'
+      }}>
         
+        {/* Photo Section */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="hero-image-wrapper"
+          transition={{ duration: 1 }}
+          style={{
+            order: isMobile ? 1 : 2,
+            display: 'flex',
+            justifyContent: 'center'
+          }}
         >
-          <div className="hero-image-container">
+          <div style={{
+            width: isMobile ? 'clamp(180px, 50vw, 220px)' : '420px',
+            height: isMobile ? 'clamp(180px, 50vw, 220px)' : '420px',
+            borderRadius: isMobile ? '50%' : '20px',
+            overflow: 'hidden',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+            border: '1px solid var(--glass-border)',
+            background: 'var(--bg-secondary)'
+          }}>
             <img 
               src="profile.jpg" 
               alt="Jermaine Rateng'" 
-              className="hero-profile-img"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
         </motion.div>
 
-        <div className="hero-content">
+        {/* Content Section */}
+        <div style={{
+          order: isMobile ? 2 : 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: isMobile ? 'center' : 'flex-start',
+          maxWidth: isMobile ? '100%' : '600px'
+        }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            style={{ marginBottom: '2rem' }}
           >
-            <div className="mono hero-label">
+            <div className="mono" style={{ 
+              color: 'var(--accent-cyan)', 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.75rem', 
+              marginBottom: '1.5rem', 
+              fontSize: isMobile ? '0.65rem' : '0.75rem' 
+            }}>
               <Terminal size={14} />
               <span>STUDENT_ID // NETWORK_SECURITY_STUDENT</span>
             </div>
             
-            <h1 className="hero-title">
+            <h1 style={{ 
+              fontSize: isMobile ? 'clamp(1.8rem, 8vw, 2.5rem)' : 'clamp(2.5rem, 6vw, 4.5rem)', 
+              marginBottom: '1.5rem', 
+              color: 'var(--text-primary)', 
+              letterSpacing: '2px',
+              lineHeight: 1.2
+            }}>
               <span style={{ color: 'var(--text-dim)' }}>I'M </span> 
               <span className="glow-text-cyan">
                 <Typewriter text={name} delay={120} />
@@ -81,7 +132,7 @@ const Hero = () => {
               <motion.span 
                 animate={{ opacity: [1, 0] }}
                 transition={{ repeat: Infinity, duration: 0.8 }}
-                className="cursor"
+                style={{ marginLeft: '4px', borderLeft: '4px solid var(--accent-cyan)' }}
               ></motion.span>
             </h1>
 
@@ -89,7 +140,13 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2, duration: 1 }}
-              className="hero-description"
+              style={{ 
+                fontSize: isMobile ? '1rem' : '1.25rem', 
+                color: 'var(--text-secondary)', 
+                maxWidth: '550px',
+                lineHeight: 1.7,
+                fontFamily: 'var(--font-body)'
+              }}
             >
               I am a <span style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>Networking and Cybersecurity student</span> building resilient infrastructure and defending digital frontiers through technical excellence.
             </motion.p>
@@ -99,153 +156,26 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.5, duration: 0.8 }}
-            className="hero-badges"
+            style={{ 
+              display: 'flex', 
+              gap: isMobile ? '1.5rem' : '2.5rem', 
+              marginTop: '2.5rem',
+              flexWrap: 'wrap',
+              justifyContent: 'center'
+            }}
           >
-            <div className="badge">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                <Network size={22} color="var(--accent-emerald)" />
-               <span className="mono">NETWORKING</span>
+               <span className="mono" style={{ fontWeight: 700, fontSize: '0.8rem', color: 'var(--text-primary)' }}>NETWORKING</span>
             </div>
-            <div className="badge">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                <Shield size={22} color="var(--accent-purple)" />
-               <span className="mono">CYBER_DEFENSE</span>
+               <span className="mono" style={{ fontWeight: 700, fontSize: '0.8rem', color: 'var(--text-primary)' }}>CYBER_DEFENSE</span>
             </div>
           </motion.div>
         </div>
 
       </div>
-
-      <style>{`
-        .hero-container {
-          display: grid;
-          grid-template-columns: 0.9fr 1.1fr;
-          align-items: center;
-          gap: 4rem;
-          zIndex: 1;
-          width: 100%;
-        }
-
-        .hero-image-wrapper {
-          display: flex;
-          justify-content: flex-start;
-          order: 2;
-        }
-
-        .hero-image-container {
-          width: 420px;
-          height: 420px;
-          border-radius: 20px;
-          overflow: hidden;
-          box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-          background: var(--bg-secondary);
-          border: 1px solid var(--glass-border);
-        }
-
-        .hero-profile-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-        }
-
-        .hero-title {
-          font-size: clamp(2.5rem, 6vw, 4.5rem);
-          margin-bottom: 2rem;
-          color: var(--text-primary);
-          letter-spacing: 2px;
-        }
-
-        .hero-label {
-          color: var(--accent-cyan);
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          margin-bottom: 1.5rem;
-          font-size: 0.75rem;
-        }
-
-        .hero-description {
-          font-size: clamp(1rem, 2vw, 1.25rem);
-          color: var(--text-secondary);
-          max-width: 550px;
-          line-height: 1.7;
-          font-family: var(--font-body);
-        }
-
-        .hero-badges {
-          display: flex;
-          gap: 2rem;
-          margin-top: 3rem;
-        }
-
-        .badge {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-        }
-
-        .badge span {
-          font-weight: 700;
-          font-size: 0.8rem;
-          color: var(--text-primary);
-        }
-
-        .cursor {
-          margin-left: 4px;
-          border-left: 4px solid var(--accent-cyan);
-        }
-
-        @media (max-width: 992px) {
-          .hero-container { 
-            grid-template-columns: 1fr; 
-            text-align: center; 
-            gap: 3rem;
-          }
-          
-          .hero-content { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            order: 2;
-          }
-
-          .hero-image-wrapper { 
-            justify-content: center;
-            order: 1;
-            margin-bottom: 1rem;
-          }
-
-          .hero-image-container { 
-            width: 220px; 
-            height: 220px; 
-            border-radius: 50%;
-          }
-
-          .hero-description {
-             max-width: 100%;
-          }
-
-          .hero-badges {
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .hero-image-container { 
-            width: 180px; 
-            height: 180px; 
-          }
-          .hero-title {
-            font-size: 2.2rem;
-          }
-          .hero-label {
-            font-size: 0.65rem;
-            flex-direction: column;
-            gap: 0.4rem;
-          }
-        }
-      `}</style>
     </section>
   );
 };
