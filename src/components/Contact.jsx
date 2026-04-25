@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Instagram, Terminal, ShieldAlert } from 'lucide-react';
+import { Mail, Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const XLogo = () => (
@@ -16,22 +16,20 @@ const WhatsAppIcon = () => (
 
 const Contact = () => {
   const socials = [
-    { icon: <Mail size={22} />, href: 'mailto:ratengjermaine@gmail.com', label: 'EMAIL' },
-    { icon: <XLogo />, href: 'https://x.com/JermaineRateng', label: 'X_CORP' },
-    { icon: <Instagram size={22} />, href: 'https://instagram.com/jermaine.fvr', label: 'INSTA' },
-    { icon: <WhatsAppIcon />, href: 'https://wa.me/254701559825', label: 'WAPP' },
+    { icon: <Mail size={22} />, href: 'mailto:ratengjermaine@gmail.com', label: 'Email' },
+    { icon: <XLogo />, href: 'https://x.com/JermaineRateng', label: 'X' },
+    { icon: <Instagram size={22} />, href: 'https://instagram.com/jermaine.fvr', label: 'Instagram' },
+    { icon: <WhatsAppIcon />, href: 'https://wa.me/254701559825', label: 'WhatsApp' }
   ];
 
   return (
     <section id="contact" className="contact" style={{
-      padding: '8rem 0',
+      padding: '6.5rem 0',
       background: 'var(--bg-secondary)',
-      borderTop: '1px solid var(--glass-border)',
-      position: 'relative',
-      overflow: 'hidden'
+      borderTop: '1px solid var(--border)'
     }}>
       <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
-        <span className="section-label">// NODE_COMMUNICATIONS</span>
+        <span className="section-label">Contact</span>
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,24 +37,22 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 style={{ 
-            fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
+          <h2 style={{
+            fontSize: 'clamp(2rem, 5vw, 2.8rem)',
             marginBottom: '1.5rem',
-            color: 'var(--text-primary)',
-            fontFamily: 'var(--font-heading)',
-            letterSpacing: '2px'
+            color: 'var(--text-primary)'
           }}>
-            SYSTEM <span className="glow-text-cyan">OUTREACH</span>
+            Let us connect
           </h2>
-          <p style={{ color: 'var(--text-secondary)', marginBottom: '4rem', fontSize: '1.1rem', fontFamily: 'var(--font-body)' }}>
-            Establishing a secure bridge for networking collaboration and security initiatives.
+          <p style={{ color: 'var(--text-secondary)', marginBottom: '2.3rem', fontSize: '1.05rem' }}>
+            I am open to internships, collaborations, and networking opportunities.
           </p>
         </motion.div>
 
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', 
-          gap: '1.5rem' 
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+          gap: '1rem'
         }}>
           {socials.map((social, i) => (
             <motion.a
@@ -68,32 +64,24 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              whileHover={{ scale: 1.05, borderColor: 'var(--accent-cyan)', background: 'rgba(0, 242, 255, 0.05)' }}
+              whileHover={{ scale: 1.02 }}
               style={{
                 background: 'var(--bg-primary)',
-                border: '1px solid var(--glass-border)',
-                padding: '2.5rem 1.5rem',
+                border: '1px solid var(--border)',
+                padding: '1.4rem 1rem',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '1.2rem',
-                borderRadius: '2px',
-                transition: 'all 0.3s ease',
-                minHeight: '44px'
+                gap: '0.8rem',
+                borderRadius: '14px'
               }}
             >
-              <div style={{ color: 'var(--accent-cyan)' }}>
+              <div style={{ color: 'var(--accent)' }}>
                 {social.icon}
               </div>
-              <span className="mono" style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '1px' }}>{social.label}</span>
+              <span style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--text-primary)' }}>{social.label}</span>
             </motion.a>
           ))}
-        </div>
-
-        <div style={{ marginTop: '6rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1.2rem', color: 'var(--text-dim)' }}>
-           <Terminal size={14} />
-           <span className="mono" style={{ fontSize: '0.7rem', letterSpacing: '2px' }}>ENCRYPTED_SIGNAL_STABLE // 2026</span>
-           <ShieldAlert size={14} />
         </div>
       </div>
     </section>

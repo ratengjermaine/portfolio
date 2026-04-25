@@ -4,47 +4,34 @@ import { motion } from 'framer-motion';
 const Overview = () => {
   return (
     <section id="overview" className="overview" style={{
-      padding: '8rem 0',
+      padding: '6.5rem 0',
       background: 'var(--bg-secondary)',
-      borderTop: '1px solid var(--glass-border)',
-      borderBottom: '1px solid var(--glass-border)',
-      position: 'relative',
-      overflow: 'hidden'
+      borderTop: '1px solid var(--border)',
+      borderBottom: '1px solid var(--border)'
     }}>
       <div className="container" style={{ maxWidth: '850px' }}>
         <motion.div
            initial={{ opacity: 0, y: 30 }}
            whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true, margin: "-100px" }}
-           transition={{ duration: 1, ease: "easeOut" }}
+           viewport={{ once: true, margin: '-100px' }}
+           transition={{ duration: 0.8, ease: 'easeOut' }}
            style={{ textAlign: 'center' }}
         >
+          <span className="section-label">About me</span>
 
-          <span className="section-label">
-            // STUDENT_MISSION_LOG
-          </span>
-
-          <p style={{ 
-            fontSize: 'clamp(1.1rem, 3vw, 2rem)', 
-            fontWeight: 500, 
-            lineHeight: 1.6, 
+          <p style={{
+            fontSize: 'clamp(1.05rem, 3vw, 1.5rem)',
+            fontWeight: 500,
+            lineHeight: 1.8,
             color: 'var(--text-primary)',
-            letterSpacing: '0.5px',
-            marginTop: '2rem',
-            fontFamily: 'var(--font-body)'
+            marginTop: '1rem'
           }}>
-            I am a <span style={{ color: 'var(--accent-cyan)', fontWeight: 700 }}>Networking and Cybersecurity student</span> driven by a deep passion for technology. My focus is on mastering complex network architectures and implementing robust security protocols to build efficient, reliable, and secure digital systems.
+            I am building a career at the intersection of networking and cybersecurity. I enjoy solving practical infrastructure problems, documenting what I learn, and improving systems so they stay stable and secure.
           </p>
           
-          <div style={{ 
-            marginTop: '4rem', 
-            height: '1px', 
-            width: '120px', 
-            background: 'var(--accent-cyan)', 
-            margin: '4rem auto 0',
-            boxShadow: '0 0 15px var(--accent-cyan)',
-            opacity: 0.5
-          }}></div>
+          <p style={{ marginTop: '1rem', color: 'var(--text-dim)' }}>
+            Current focus: network hardening, protocol analysis, and incident response fundamentals.
+          </p>
         </motion.div>
       </div>
     </section>
