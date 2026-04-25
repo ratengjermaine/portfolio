@@ -37,7 +37,14 @@ const Contact = () => {
       background: 'var(--bg-secondary)',
       borderTop: '1px solid var(--border)'
     }}>
-      <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
+      <motion.div
+        className="container"
+        style={{ maxWidth: '800px', textAlign: 'center' }}
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7 }}
+      >
         <span className="section-label">Contact</span>
         
         <motion.div
@@ -74,9 +81,8 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ scale: 1.02 }}
+              className="glass-card"
               style={{
-                background: 'var(--bg-primary)',
-                border: '1px solid var(--border)',
                 padding: '0.8rem 0.7rem',
                 display: 'flex',
                 flexDirection: 'column',
@@ -92,7 +98,7 @@ const Contact = () => {
             </motion.a>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

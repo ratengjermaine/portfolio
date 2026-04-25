@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --bg-primary: #0b1220;
-  --bg-secondary: #111b2f;
-  --surface: #16223a;
-  --border: #2a3b5f;
-  --accent: #4f8cff;
-  --text-primary: #f5f7fb;
-  --text-secondary: #c5d0e6;
-  --text-dim: #8fa1c2;
+  --bg-primary: #070913;
+  --bg-secondary: #0f1424;
+  --surface: #141c32;
+  --border: #2e3a61;
+  --accent: #8a7dff;
+  --accent-2: #3dd6c6;
+  --text-primary: #f3f6ff;
+  --text-secondary: #c1cae8;
+  --text-dim: #8f9bbc;
   --font-body: 'Inter', sans-serif;
 }
 
@@ -35,7 +36,9 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  background-image: radial-gradient(circle at 10% 10%, #1b2b48 0%, transparent 45%);
+  background-image:
+    radial-gradient(circle at 10% 8%, rgba(138, 125, 255, 0.2) 0%, transparent 35%),
+    radial-gradient(circle at 80% 20%, rgba(61, 214, 198, 0.14) 0%, transparent 30%);
 }
 
 h1,
@@ -74,6 +77,51 @@ ul {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.glass-card {
+  padding: 1.1rem 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(138, 125, 255, 0.55);
+  box-shadow: 0 12px 30px rgba(10, 13, 30, 0.35);
+}
+
+.btn-primary-glow,
+.btn-secondary-glow {
+  border-radius: 10px;
+  padding: 0.62rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.btn-primary-glow {
+  background: linear-gradient(135deg, var(--accent), #a29bff);
+  color: #090d1b;
+  border-color: rgba(162, 155, 255, 0.65);
+}
+
+.btn-secondary-glow {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.btn-primary-glow:hover,
+.btn-secondary-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(138, 125, 255, 0.45), 0 10px 24px rgba(138, 125, 255, 0.25);
 }
 
 ::-webkit-scrollbar {
