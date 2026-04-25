@@ -26,11 +26,11 @@ const Overview = () => {
             color: 'var(--text-primary)',
             marginTop: '1rem'
           }}>
-            I am a networking and cybersecurity student building practical skills through labs and projects. I enjoy solving infrastructure problems, documenting what I learn, and improving systems so they stay stable and secure.
+            I am a networking and cybersecurity student at the beginning of my journey. Right now I am focused on understanding the basics clearly and improving through regular study and small hands-on exercises.
           </p>
           
           <p style={{ marginTop: '1rem', color: 'var(--text-dim)' }}>
-            Current focus: network hardening, protocol analysis, and incident response fundamentals.
+            Current focus: networking fundamentals, cybersecurity fundamentals, and consistent daily learning.
           </p>
         </motion.div>
       </div>

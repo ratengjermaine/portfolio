@@ -62,7 +62,7 @@ const Hero = () => {
                 lineHeight: 1.75
               }}
             >
-              I focus on secure network design, practical cyber defense, and continuous learning through labs and projects.
+              I am new to networking and cybersecurity, currently learning core concepts step by step and building confidence through practice.
             </motion.p>
           </motion.div>
 
@@ -73,23 +73,68 @@ const Hero = () => {
             style={{
               display: 'flex',
               gap: '0.8rem',
-              marginTop: '2rem',
+              marginTop: '1.4rem',
               flexWrap: 'wrap',
               justifyContent: isMobile ? 'center' : 'flex-start'
             }}
           >
-            {['Network Security', 'Routing and Switching', 'Security Labs'].map((item) => (
+            {['Beginner Learner', 'Networking Basics', 'Cybersecurity Foundations'].map((item) => (
               <span key={item} style={{
                 border: '1px solid var(--border)',
                 background: 'var(--surface)',
                 color: 'var(--text-secondary)',
                 padding: '0.45rem 0.8rem',
                 borderRadius: '999px',
-                fontSize: '0.86rem'
+                fontSize: '0.84rem',
+                transition: 'transform 0.2s ease, border-color 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.borderColor = 'var(--accent)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.borderColor = 'var(--border)';
               }}>
                 {item}
               </span>
             ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.7 }}
+            style={{
+              display: 'flex',
+              gap: '0.8rem',
+              marginTop: '1.3rem',
+              flexWrap: 'wrap',
+              justifyContent: isMobile ? 'center' : 'flex-start'
+            }}
+          >
+            <a href="#contact" style={{
+              background: 'var(--accent)',
+              color: '#0b1220',
+              fontWeight: 700,
+              borderRadius: '10px',
+              padding: '0.62rem 1rem',
+              fontSize: '0.9rem',
+              border: '1px solid var(--accent)'
+            }}>
+              Contact me
+            </a>
+            <a href="#skills" style={{
+              background: 'transparent',
+              color: 'var(--text-primary)',
+              fontWeight: 600,
+              borderRadius: '10px',
+              padding: '0.62rem 1rem',
+              fontSize: '0.9rem',
+              border: '1px solid var(--border)'
+            }}>
+              View skills
+            </a>
           </motion.div>
         </div>
 
