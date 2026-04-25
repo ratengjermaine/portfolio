@@ -26,7 +26,7 @@ function App() {
             color: 'var(--text-dim)',
             fontWeight: 500
           }}>
-            © {new Date().getFullYear()} Jermaine Rateng. All rights reserved.
+            © {new Date().getFullYear()} Jermaine Rateng'. All rights reserved.
           </p>
         </div>
       </footer>

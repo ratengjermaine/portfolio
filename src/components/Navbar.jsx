@@ -50,7 +50,7 @@ const Navbar = () => {
             JR
           </span>
           <span style={{ fontWeight: 700, fontSize: '1.02rem', letterSpacing: '0.2px' }}>
-            Jermaine Rateng
+            Jermaine Rateng'
           </span>
         </a>
 

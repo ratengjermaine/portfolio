@@ -48,7 +48,7 @@ const Hero = () => {
               marginBottom: '1rem',
               color: 'var(--text-primary)'
             }}>
-              Jermaine Rateng
+              Jermaine Rateng'
             </h1>
 
             <motion.p
@@ -110,7 +110,7 @@ const Hero = () => {
           }}>
             <img
               src="profile.jpg"
-              alt="Jermaine Rateng"
+              alt="Jermaine Rateng'"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
