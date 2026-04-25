@@ -65,55 +65,6 @@ const Hero = () => {
               I am a student specializing in Cybersecurity and Networking, focused on developing resilient infrastructure skills, security-first thinking, and practical technical discipline.
             </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.7 }}
-              style={{
-                fontSize: isMobile ? '0.96rem' : '1.04rem',
-                color: 'var(--text-dim)',
-                maxWidth: '560px',
-                lineHeight: 1.8,
-                marginTop: '0.85rem'
-              }}
-            >
-              I build this portfolio to document projects, technical growth, and the methods I use to approach secure networking challenges.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.7 }}
-            style={{
-              display: 'flex',
-              gap: '0.8rem',
-              marginTop: '1.4rem',
-              flexWrap: 'wrap',
-              justifyContent: isMobile ? 'center' : 'flex-start'
-            }}
-          >
-            {['Network Architecture', 'Cyber Defense', 'Protocol Analysis'].map((item) => (
-              <span key={item} style={{
-                border: '1px solid rgba(190, 170, 255, 0.35)',
-                background: 'rgba(255, 255, 255, 0.04)',
-                color: 'var(--text-secondary)',
-                padding: '0.45rem 0.8rem',
-                borderRadius: '999px',
-                fontSize: '0.84rem',
-                transition: 'transform 0.2s ease, border-color 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.borderColor = 'var(--accent)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.borderColor = 'rgba(190, 170, 255, 0.35)';
-              }}>
-                {item}
-              </span>
-            ))}
           </motion.div>
 
           <motion.div
