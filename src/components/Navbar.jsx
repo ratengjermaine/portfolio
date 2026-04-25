@@ -34,8 +34,25 @@ const Navbar = () => {
       }}
     >
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <a href="#home" style={{ fontWeight: 700, fontSize: '1.05rem', letterSpacing: '0.2px' }}>
-          Jermaine Rateng
+        <a href="#home" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.55rem' }}>
+          <span style={{
+            width: '28px',
+            height: '28px',
+            borderRadius: '8px',
+            border: '1px solid var(--border)',
+            background: 'rgba(79, 140, 255, 0.08)',
+            color: 'var(--text-secondary)',
+            fontSize: '0.76rem',
+            fontWeight: 700,
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            JR
+          </span>
+          <span style={{ fontWeight: 700, fontSize: '1.02rem', letterSpacing: '0.2px' }}>
+            Jermaine Rateng
+          </span>
         </a>
 
         <div style={{ display: 'flex', alignItems: 'center' }}>

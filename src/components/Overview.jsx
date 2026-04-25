@@ -26,7 +26,7 @@ const Overview = () => {
             color: 'var(--text-primary)',
             marginTop: '1rem'
           }}>
-            I am building a career at the intersection of networking and cybersecurity. I enjoy solving practical infrastructure problems, documenting what I learn, and improving systems so they stay stable and secure.
+            I am a networking and cybersecurity student building practical skills through labs and projects. I enjoy solving infrastructure problems, documenting what I learn, and improving systems so they stay stable and secure.
           </p>
           
           <p style={{ marginTop: '1rem', color: 'var(--text-dim)' }}>
